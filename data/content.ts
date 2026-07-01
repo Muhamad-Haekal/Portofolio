@@ -1,7 +1,6 @@
 export const profile = {
   name: "Muhamad Haekal",
-  firstName: "Muhamad",
-  lastName: "Haekal",
+  firstName: "Muhamad Haekal",
   role: "Software Engineer",
   school: "SMK Negeri 10 Jakarta — Rekayasa Perangkat Lunak",
   tagline:
@@ -11,8 +10,7 @@ export const profile = {
   phone: "+62-8571-9991-893",
   email: "belajarhaekal@gmail.com",
   github: "https://github.com/Muhamad-Haekal",
-  linkedin: "#",
-  instagram: "haekal_muhh",
+  instagram: "https://instagram.com/haekal_muhh",
   cvUrl: "https://drive.google.com/file/d/1LN4H3fpL-eaSCXMSxruzLa6tfOH4JzRK/view?usp=drivesdk",
   avatar: "/profile.jpg",
   avatarInitials: "MH",
@@ -110,6 +108,7 @@ export type Project = {
   title: string;
   description: string;
   stack: string[];
+  image?: string;
   link?: string;
   repo?: string;
 };
@@ -121,6 +120,7 @@ export const projects: Project[] = [
     description:
       "Aplikasi pemesanan lapangan olahraga dengan backend layanan yang menangani jadwal dan pemesanan pengguna.",
     stack: ["Flutter", "Go", "MySQL"],
+    image: "/sportbook.png",
     link: "#",
     repo: "https://github.com/Muhamad-Haekal/SportBook",
   },
@@ -139,6 +139,7 @@ export const projects: Project[] = [
     description:
       "Aplikasi web untuk membaca Al-Qur'an dengan tampilan yang bersih dan mudah dinavigasi.",
     stack: ["React", "JavaScript", "Tailwind CSS"],
+    image: "/quranly.png",
     link: "#",
     repo: "https://github.com/Muhamad-Haekal/Quranly",
   },

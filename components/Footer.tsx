@@ -12,9 +12,6 @@ export default function Footer() {
           <a href={profile.github} className="text-ink-muted hover:text-brand-blue">
             GitHub
           </a>
-          <a href={profile.linkedin} className="text-ink-muted hover:text-brand-blue">
-            LinkedIn
-          </a>
           <a href={profile.instagram} className="text-ink-muted hover:text-brand-blue">
             Instagram
           </a>

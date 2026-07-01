@@ -48,7 +48,6 @@ export default function Hero() {
           <div className="mt-8 flex gap-4">
             {[
               { label: "GitHub", href: profile.github },
-              { label: "LinkedIn", href: profile.linkedin },
               { label: "Instagram", href: profile.instagram },
             ].map((s) => (
               <a

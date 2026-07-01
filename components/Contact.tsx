@@ -5,14 +5,30 @@ import { contactLinks, profile } from "@/data/content";
 import FadeIn from "./FadeIn";
 
 export default function Contact() {
-  const [sent, setSent] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Form ini belum terhubung ke layanan pengiriman email.
-    // Opsi termudah: daftar gratis di https://formspree.io atau
-    // https://web3forms.com, lalu arahkan action form ke endpoint mereka.
-    setSent(true);
+    
+    const phoneNumber = profile.phone.replace(/\D/g, "");
+    
+    const waMessage = `Halo, Haekal!
+
+Nama: ${name}
+Email: ${email}
+
+Pesan:
+${message}`;
+    
+    const encodedMessage = encodeURIComponent(waMessage);
+    
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
+    
+    setName("");
+    setEmail("");
+    setMessage("");
   }
 
   return (
@@ -66,6 +82,8 @@ export default function Contact() {
               <input
                 required
                 type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 placeholder="Nama kamu"
                 className="w-full rounded-lg border border-ink-line bg-ink px-4 py-2.5 text-sm text-ink-text outline-none focus:border-brand-blue"
               />
@@ -77,6 +95,8 @@ export default function Contact() {
               <input
                 required
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="email@kamu.com"
                 className="w-full rounded-lg border border-ink-line bg-ink px-4 py-2.5 text-sm text-ink-text outline-none focus:border-brand-blue"
               />
@@ -88,6 +108,8 @@ export default function Contact() {
               <textarea
                 required
                 rows={4}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 placeholder="Tulis pesan kamu..."
                 className="w-full resize-none rounded-lg border border-ink-line bg-ink px-4 py-2.5 text-sm text-ink-text outline-none focus:border-brand-blue"
               />
@@ -96,14 +118,11 @@ export default function Contact() {
               type="submit"
               className="w-full rounded-lg bg-gradient-to-r from-brand-blue to-brand-violet py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
             >
-              {sent ? "Terkirim ✓" : "Kirim Pesan"}
+              Kirim via WhatsApp
             </button>
-            {sent && (
-              <p className="text-center text-xs text-ink-muted">
-                Form ini contoh tampilan — sambungkan ke Formspree/Web3Forms
-                agar pesan benar-benar terkirim ke email kamu.
-              </p>
-            )}
+            <p className="text-center text-xs text-ink-muted">
+              Pesan akan dikirim melalui WhatsApp
+            </p>
           </form>
         </FadeIn>
       </div>
