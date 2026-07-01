@@ -33,13 +33,14 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={profile.cvUrl}
-              className="rounded-full bg-gradient-to-r from-brand-blue to-brand-violet px-6 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+              className="group relative overflow-hidden rounded-full bg-gradient-to-r from-brand-blue to-brand-violet px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-brand-blue/50"
             >
-              Unduh CV
+              <span className="relative z-10">Unduh CV</span>
+              <div className="absolute inset-0 -z-0 bg-gradient-to-r from-brand-violet to-brand-cyan opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </a>
             <a
               href="#projects"
-              className="rounded-full border border-ink-line px-6 py-3 text-sm font-semibold text-ink-text transition-colors hover:border-brand-blue/60 hover:text-brand-blue"
+              className="group rounded-full border-2 border-ink-line px-6 py-3 text-sm font-semibold text-ink-text transition-all duration-300 hover:scale-105 hover:border-brand-blue hover:bg-brand-blue/10 hover:text-brand-blue hover:shadow-lg hover:shadow-brand-blue/20"
             >
               Lihat Proyek
             </a>
@@ -53,27 +54,40 @@ export default function Hero() {
               <a
                 key={s.label}
                 href={s.href}
-                className="text-sm text-ink-muted underline-offset-4 hover:text-brand-blue hover:underline"
+                className="group relative text-sm text-ink-muted transition-all duration-300 hover:text-brand-blue"
               >
-                {s.label}
+                <span className="relative">
+                  {s.label}
+                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-brand-blue transition-all duration-300 group-hover:w-full" />
+                </span>
               </a>
             ))}
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-xs animate-float">
-          <div className="absolute -inset-4 -z-10 rounded-[2.5rem] bg-gradient-to-br from-brand-blue via-brand-violet to-brand-cyan opacity-60 blur-2xl" />
-          <div className="overflow-hidden rounded-[2rem] border border-ink-line bg-ink-surface p-2 shadow-2xl">
+        <div className="relative mx-auto w-full max-w-xs">
+          <div className="absolute -inset-4 -z-10 animate-pulse rounded-[2.5rem] bg-gradient-to-br from-brand-blue via-brand-violet to-brand-cyan opacity-60 blur-2xl" />
+          <div className="group relative overflow-hidden rounded-[2rem] border-2 border-ink-line bg-ink-surface p-2 shadow-2xl transition-all duration-500 hover:scale-105 hover:border-brand-blue hover:shadow-brand-blue/25">
             <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[1.5rem]">
               <Image
                 src={profile.avatar}
                 alt={profile.name}
                 fill
                 sizes="320px"
-                className="object-cover"
+                className="object-cover transition-all duration-500 group-hover:scale-110 group-hover:rotate-2"
                 priority
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="absolute bottom-0 left-0 right-0 translate-y-full p-4 transition-transform duration-500 group-hover:translate-y-0">
+                <p className="text-center font-display text-sm font-semibold text-white">
+                  {profile.name}
+                </p>
+                <p className="text-center text-xs text-gray-300">
+                  {profile.school.split("—")[0].trim()}
+                </p>
+              </div>
             </div>
+            <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-brand-blue/20 to-brand-violet/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
           </div>
         </div>
       </div>

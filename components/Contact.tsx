@@ -50,7 +50,7 @@ ${message}`;
 
       <div className="mt-10 grid gap-8 md:grid-cols-2">
         <FadeIn delay={100}>
-          <div className="h-full rounded-2xl border border-ink-line bg-ink-surface p-6 sm:p-8">
+          <div className="h-full rounded-2xl border border-ink-line bg-ink-surface p-6 transition-all duration-300 hover:border-brand-blue/50 hover:shadow-lg hover:shadow-brand-blue/10 sm:p-8">
             <h3 className="font-display text-lg font-semibold text-ink-text">
               Info Kontak
             </h3>
@@ -59,10 +59,10 @@ ${message}`;
                 <a
                   key={link.label}
                   href={link.href}
-                  className="flex items-center justify-between rounded-lg px-3 py-2.5 transition-colors hover:bg-ink-surface2"
+                  className="group flex items-center justify-between rounded-lg px-3 py-2.5 transition-all duration-300 hover:scale-105 hover:bg-ink-surface2"
                 >
-                  <span className="text-sm text-ink-muted">{link.label}</span>
-                  <span className="text-sm text-brand-blue">{link.value}</span>
+                  <span className="text-sm text-ink-muted group-hover:text-ink-text">{link.label}</span>
+                  <span className="text-sm text-brand-blue transition-transform duration-300 group-hover:translate-x-1">{link.value}</span>
                 </a>
               ))}
             </div>
@@ -116,9 +116,10 @@ ${message}`;
             </div>
             <button
               type="submit"
-              className="w-full rounded-lg bg-gradient-to-r from-brand-blue to-brand-violet py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+              className="group relative w-full overflow-hidden rounded-lg bg-gradient-to-r from-brand-blue to-brand-violet py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-brand-blue/50"
             >
-              Kirim via WhatsApp
+              <span className="relative z-10">Kirim via WhatsApp</span>
+              <div className="absolute inset-0 -z-0 bg-gradient-to-r from-brand-violet to-brand-cyan opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </button>
             <p className="text-center text-xs text-ink-muted">
               Pesan akan dikirim melalui WhatsApp

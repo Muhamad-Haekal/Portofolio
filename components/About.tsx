@@ -29,7 +29,7 @@ export default function About() {
               {about.focusAreas.map((area) => (
                 <span
                   key={area}
-                  className="rounded-full border border-ink-line bg-ink-surface px-4 py-1.5 text-sm text-ink-text"
+                  className="group cursor-pointer rounded-full border border-ink-line bg-ink-surface px-4 py-1.5 text-sm text-ink-text transition-all duration-300 hover:scale-105 hover:border-brand-blue hover:bg-brand-blue/10 hover:text-brand-blue"
                 >
                   {area}
                 </span>
@@ -41,8 +41,8 @@ export default function About() {
         <div className="grid grid-cols-3 gap-4 md:grid-cols-1">
           {stats.map((stat, idx) => (
             <FadeIn key={stat.label} delay={idx * 100}>
-              <div className="rounded-2xl border border-ink-line bg-ink-surface p-6 text-center md:text-left">
-                <p className="font-display text-3xl font-bold text-gradient">
+              <div className="group cursor-pointer rounded-2xl border border-ink-line bg-ink-surface p-6 text-center transition-all duration-300 hover:scale-105 hover:border-brand-blue hover:shadow-lg hover:shadow-brand-blue/20 md:text-left">
+                <p className="font-display text-3xl font-bold text-gradient transition-transform duration-300 group-hover:scale-110">
                   {stat.value}
                 </p>
                 <p className="mt-1 text-sm text-ink-muted">{stat.label}</p>
