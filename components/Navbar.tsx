@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { profile } from "@/data/content";
 
 const links = [
@@ -13,12 +13,31 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink-line/60 bg-ink/80 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#home" className="font-display text-lg font-semibold text-ink-text">
-          {profile.firstName}<span className="text-brand-blue">.</span>
+    <header
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+        scrolled
+          ? "glass border-b border-primary/20 shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <a
+          href="#home"
+          className="font-display text-xl font-bold text-text-primary transition-colors hover:text-primary"
+        >
+          {profile.firstName}
+          <span className="text-gradient">.</span>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -26,41 +45,49 @@ export default function Navbar() {
             <a
               key={link.id}
               href={`#${link.id}`}
-              className="text-sm text-ink-muted transition-colors hover:text-ink-text"
+              className="group relative text-sm font-medium text-text-secondary transition-colors hover:text-primary"
             >
               {link.label}
+              <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>
 
         <a
           href="#contact"
-          className="hidden rounded-full bg-gradient-to-r from-brand-blue to-brand-violet px-5 py-2 text-sm font-medium text-white transition-transform hover:-translate-y-0.5 md:inline-block"
+          className="hidden rounded-xl bg-gradient-to-r from-primary to-accent px-6 py-2.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-primary/50 md:inline-block"
         >
           Hubungi Saya
         </a>
 
         <button
           onClick={() => setOpen(!open)}
-          aria-label="Buka menu"
-          className="flex h-9 w-9 items-center justify-center rounded-md border border-ink-line text-ink-text md:hidden"
+          aria-label="Toggle menu"
+          className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary/30 text-text-primary backdrop-blur-sm transition-all hover:border-primary hover:bg-primary/10 md:hidden"
         >
-          <span className="text-lg">{open ? "✕" : "☰"}</span>
+          <span className="text-xl">{open ? "✕" : "☰"}</span>
         </button>
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-1 border-t border-ink-line/60 px-6 py-4 md:hidden">
+        <nav className="glass border-t border-primary/20 px-6 py-4 md:hidden">
           {links.map((link) => (
             <a
               key={link.id}
               href={`#${link.id}`}
               onClick={() => setOpen(false)}
-              className="rounded-md px-2 py-2 text-sm text-ink-muted hover:bg-ink-surface hover:text-ink-text"
+              className="block rounded-lg px-4 py-3 text-sm font-medium text-text-secondary transition-all hover:bg-primary/10 hover:text-primary"
             >
               {link.label}
             </a>
           ))}
+          <a
+            href="#contact"
+            onClick={() => setOpen(false)}
+            className="mt-2 block rounded-xl bg-gradient-to-r from-primary to-accent px-4 py-3 text-center text-sm font-semibold text-white"
+          >
+            Hubungi Saya
+          </a>
         </nav>
       )}
     </header>
