@@ -4,8 +4,8 @@ export const profile = {
   role: "Software Engineer",
   school: "SMK Negeri 10 Jakarta — Rekayasa Perangkat Lunak",
   tagline:
-    "Siswa kelas XII RPL dengan minat kuat di Quality Assurance dan IT Infrastructure, terbuka untuk kesempatan PKL.",
-  bio: "Saya siswa kelas XII SMKN 10 Jakarta jurusan Rekayasa Perangkat Lunak dengan minat kuat di bidang Quality Assurance dan IT Infrastructure, dan berharap dapat belajar banyak hal baru melalui program PKL.",
+    "Siswa kelas XII RPL dengan minat kuat di Quality Assurance dan IT Infrastructure, siap bekerja dan berkarir di industri teknologi.",
+  bio: "Saya siswa kelas XII SMKN 10 Jakarta jurusan Rekayasa Perangkat Lunak dengan minat kuat di bidang Quality Assurance dan IT Infrastructure, siap berkarir dan berkontribusi di dunia profesional.",
   location: "Pancoran, Jakarta Selatan, Indonesia",
   phone: "+62-8571-9991-893",
   email: "belajarhaekal@gmail.com",

@@ -43,7 +43,7 @@ ${message}`;
               Mari Terhubung
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-text-secondary">
-              Terbuka untuk kesempatan PKL, kolaborasi proyek, atau diskusi
+              Siap bekerja, kolaborasi proyek, atau diskusi peluang karir
             </p>
           </div>
         </FadeIn>

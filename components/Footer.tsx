@@ -46,7 +46,7 @@ export default function Footer() {
 
         <div className="mt-8 text-center">
           <p className="text-xs text-text-secondary">
-            Made with 💜 by {profile.firstName}
+            Made with by {profile.firstName}
           </p>
         </div>
       </div>

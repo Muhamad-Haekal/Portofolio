@@ -206,7 +206,7 @@ export default function ProfileCard({ name, school, avatar }: ProfileCardProps) 
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400 shadow-lg shadow-green-400/50"></span>
                 </motion.span>
-                <span className="text-xs font-bold text-text-primary tracking-wide">Tersedia untuk PKL</span>
+                <span className="text-xs font-bold text-text-primary tracking-wide">Siap Bekerja</span>
               </motion.div>
             </div>
 
