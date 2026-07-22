@@ -15,41 +15,37 @@ const skillIcons: Record<string, string> = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative px-6 py-24">
-      <div className="mx-auto max-w-7xl">
+    <section id="skills" className="relative bg-card px-6 py-16 md:py-24">
+      <div className="mx-auto max-w-6xl">
         <FadeIn>
           <div className="text-center">
-            <p className="mb-3 font-display text-sm font-semibold uppercase tracking-widest text-primary/80">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-primary">
               Keterampilan
             </p>
-            <h2 className="font-display text-4xl font-bold leading-tight tracking-tight text-text-primary md:text-5xl">
+            <h2 className="font-display text-3xl font-bold text-text-primary md:text-4xl">
               Tech Stack
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-text-secondary/70 md:text-lg">
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-text-secondary md:text-base">
               Teknologi dan tools yang saya kuasai untuk membangun solusi digital
             </p>
           </div>
         </FadeIn>
 
-        <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 md:gap-4 lg:grid-cols-5">
           {skills.map((skill, idx) => (
             <FadeIn key={skill.name} delay={idx * 30}>
-              <div className="glass glow-border group relative cursor-pointer overflow-hidden rounded-2xl p-6 text-center transition-all duration-500 hover:scale-[1.08] hover:shadow-2xl hover:shadow-primary/20">
-                <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/0 via-accent/0 to-accent-pink/0 opacity-0 transition-all duration-500 group-hover:from-primary/15 group-hover:via-accent/10 group-hover:to-accent-pink/5 group-hover:opacity-100" />
-                
-                <div className="mb-3.5 flex justify-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/15 to-accent/15 ring-1 ring-primary/20 transition-all duration-500 group-hover:scale-110 group-hover:from-primary/25 group-hover:to-accent/25 group-hover:ring-primary/40">
-                    <span className="text-3xl transition-transform duration-500 group-hover:scale-110">
+              <div className="group cursor-pointer overflow-hidden rounded-xl border border-border bg-background p-4 text-center transition-all hover:border-primary/30 hover:shadow-md md:p-5">
+                <div className="mb-3 flex justify-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/5 transition-all group-hover:bg-primary/10 md:h-14 md:w-14">
+                    <span className="text-2xl transition-transform group-hover:scale-110 md:text-3xl">
                       {skillIcons[skill.name] || "💎"}
                     </span>
                   </div>
                 </div>
                 
-                <p className="text-sm font-semibold leading-tight text-text-primary transition-colors duration-300 group-hover:text-primary">
+                <p className="text-xs font-semibold leading-tight text-text-primary transition-colors group-hover:text-primary md:text-sm">
                   {skill.name}
                 </p>
-                
-                <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-primary via-accent to-accent-pink transition-all duration-500 group-hover:w-full" />
               </div>
             </FadeIn>
           ))}
